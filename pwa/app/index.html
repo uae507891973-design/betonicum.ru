@@ -7,8 +7,10 @@
 <title>Полиуретан-цементные полы Resalux от производителя — Betonicum</title>
 <meta name="description" content="Производим полиуретан-цементные системы Resalux с 2001 года. Подбор покрытия под вашу отрасль, калькулятор расхода, техдокументация офлайн.">
 <meta name="theme-color" content="#16314f">
-<link rel="manifest" href="/manifest.webmanifest">
-<link rel="apple-touch-icon" href="/pwa/icons/icon-192.png">
+<!-- Пути относительные, чтобы прототип работал и на демо-хостинге в подкаталоге.
+     При деплое на betonicum.ru заменить на /manifest.webmanifest и /pwa/icons/… -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -233,7 +235,7 @@
 <body>
 
 <header class="appbar">
-  <img src="/pwa/icons/icon-192.png" alt="Betonicum">
+  <img src="../icons/icon-192.png" alt="Betonicum">
   <div class="brand">
     <strong>Betonicum</strong>
     <span><i class="dot" id="net-dot"></i><span id="net-label">онлайн · производитель Resalux</span></span>
@@ -440,8 +442,28 @@
   ['cta-wizard', 'tab-wizard'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function (e) {
       e.preventDefault();
-      location.href = '/podbor/'; /* мастер из 3 шагов: отрасль → нагрузки → температура */
+      /* Продакшен: location.href = '/podbor/' — мастер из 3 шагов: отрасль → нагрузки → температура */
+      demoToast('Прототип: мастер подбора (3 шага) — следующая итерация');
     });
+  });
+
+  /* Демо-режим прототипа: внутренние разделы сайта ещё не свёрстаны —
+     показываем подсказку вместо перехода на 404. Удалить при деплое на betonicum.ru. */
+  function demoToast(text) {
+    var t = document.createElement('div');
+    t.textContent = text;
+    t.setAttribute('style',
+      'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);z-index:99;' +
+      'background:#16314f;color:#fff;border-radius:8px;padding:10px 18px;max-width:86%;' +
+      'font:13.5px system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3);text-align:center;');
+    document.body.appendChild(t);
+    setTimeout(function () { t.remove(); }, 2600);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="/"]');
+    if (!a) return;
+    e.preventDefault();
+    demoToast('Прототип первого экрана: раздел «' + (a.textContent.trim().slice(0, 30) || a.getAttribute('href')) + '» появится в следующей итерации');
   });
 
   /* Лид-форма: офлайн-очередь (упрощённо, до Background Sync фазы 3) */
