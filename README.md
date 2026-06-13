@@ -10,6 +10,7 @@
 | [`docs/ux-research.md`](docs/ux-research.md) | UX-исследование: аудитория, персоны, CJM, находки и рекомендации |
 | [`docs/pwa-implementation.md`](docs/pwa-implementation.md) | Предложение по реализации PWA: архитектура, этапы, метрики, деплой |
 | [`docs/seo-analysis.md`](docs/seo-analysis.md) | SEO-анализ: индексация, конкуренты, семантическое ядро, план работ |
+| [`docs/market-research-and-conversion-structure.md`](docs/market-research-and-conversion-structure.md) | Исследование рынка, конкуренты, УТП и конверсионная структура сайта с законами UX |
 | [`pwa/app/index.html`](pwa/app/index.html) | Первый экран приложения (мобильный прототип главной) |
 | [`docs/screenshots/`](docs/screenshots/) | Скриншоты первого экрана |
 | [`pwa/manifest.webmanifest`](pwa/manifest.webmanifest) | Манифест приложения (иконки, shortcuts, цвета) |
