@@ -452,3 +452,86 @@ h2.title { font-size: var(--fs-h2); line-height: var(--lh-h2); }
 .swatch-box { height: 64px; border-radius: var(--r-md); border: 1px solid rgba(0,0,0,.06); }
 .token-row { display: grid; grid-template-columns: 64px 1fr auto; gap: var(--sp-4); align-items: center; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); font-size: var(--fs-small); }
 .token-row code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: var(--fs-cap); color: var(--c-accent-700); background: var(--c-accent-100); padding: 2px 6px; border-radius: 4px; }
+
+/* ============================================================
+   DESIGN SYSTEM v3 — RESTYLE (тёмная пастельная тема)
+   Бриф: фон — пастельный тёмно-синий и серый; акцент — коралловый;
+   шрифт Inter; заголовки капслоком; кнопки с иконками и анимацией.
+   Реализовано переопределением значений токенов + оверрайдами тех
+   компонентов, где цвета были захардкожены под светлую тему.
+   ============================================================ */
+:root {
+  /* — фон: пастельный тёмно-синий + серый — */
+  --c-canvas:   #2a3650;   /* основной пастельный тёмно-синий фон */
+  --c-surface:  #323f5a;   /* карточки — синий чуть светлее */
+  --c-concrete: #343b47;   /* секции-разделители — пастельный тёмно-серый */
+  --c-ink:      #eef2f8;    /* основной текст (светлый) */
+  --c-muted:    #aab6c8;    /* вторичный текст */
+  --c-faint:    #8090a4;    /* подписи */
+  --c-line:     #45526b;    /* границы на тёмном */
+
+  /* — тёмные брендовые подложки (pastel navy) — */
+  --c-primary-900: #1d2840; /* топбар/футер, самый тёмный */
+  --c-primary-800: #24314c; /* ink-секции, тёмная кнопка */
+  --c-primary-700: #2c3a58; /* hover/градиент */
+  --c-primary-100: #3a4865; /* приподнятые подложки (теги, иконки, шапки таблиц) */
+  --c-primary-050: #35435d;
+
+  /* — акцент: коралловый — */
+  --c-accent-500: #ff6f5e;  /* основной коралл — CTA, акценты */
+  --c-accent-600: #f1574a;  /* hover (глубже) */
+  --c-accent-700: #ff8d7f;  /* акцентный текст на тёмном (светлее для контраста) */
+  --c-accent-100: rgba(255,111,94,.16); /* мягкая коралловая подложка */
+
+  /* — типографика: Inter — */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* — фокус под коралл — */
+  --focus-ring: 0 0 0 3px rgba(255,111,94,.5);
+
+  /* семантические подложки на тёмном — приглушаем */
+  --c-success-100: #24402f; --c-info-100: #1f3a52;
+  --c-warning-100: #3d3320; --c-danger-100: #43282a;
+  --c-info: #6db1ec;
+
+  /* тени на тёмном фоне — глубже */
+  --sh-sm: 0 1px 3px rgba(0,0,0,.28);
+  --sh-md: 0 6px 18px rgba(0,0,0,.34);
+  --sh-lg: 0 16px 40px rgba(0,0,0,.45);
+}
+
+/* — Заголовки: КАПСЛОК + светлый цвет — */
+h1, h2, h3, h4, .title { text-transform: uppercase; letter-spacing: .005em; }
+h1, h2, h3 { color: var(--c-ink); }
+
+/* — Текстовые места, где раньше был тёмный primary-800 на светлом — */
+.brand__name, .header__phone b, .trust__item b, .spec thead th { color: var(--c-ink); }
+.trust__item .ic { color: var(--c-accent-500); }
+.tag, .badge--neutral { color: var(--c-ink); }
+
+/* шапка/квоут-карточка: бордеры для отделения на тёмном */
+.quote-card { border: 1px solid var(--c-line); }
+.header { background: var(--c-primary-900); border-bottom-color: var(--c-line); }
+
+/* поля внутри коралловой CTA-полосы — тёмный текст на белом инпуте */
+.cta-band .field { color: #1c2733; }
+.cta-band .field::placeholder { color: #5a6b7d; }
+
+/* отрасли при ховере — коралловая рамка уже есть; усилим заливку */
+.ind:hover { background: var(--c-primary-100); }
+
+/* — Кнопки: иконки + анимация — */
+.btn { overflow: hidden; }
+.btn .btn__ic { width: 18px; height: 18px; flex: none; transition: transform var(--dur-base) var(--ease-out); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn:hover .btn__ic--arrow { transform: translateX(4px); }   /* стрелка уезжает */
+.btn:hover .btn__ic--spin { transform: rotate(90deg); }
+.btn--primary:hover { box-shadow: 0 10px 26px rgba(255,111,94,.40); }
+/* блик, пробегающий по кнопке при наведении */
+.btn--primary::before {
+  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+  transform: skewX(-18deg); transition: left var(--dur-slow) var(--ease-out);
+}
+.btn--primary:hover::before { left: 130%; }
