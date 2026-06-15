@@ -14,8 +14,10 @@
 | [`docs/improvements.md`](docs/improvements.md) | Варианты улучшения сайта на основе анализа конкурентов: приоритеты, 3 сценария внедрения |
 | [`docs/roadmap.md`](docs/roadmap.md) | Единая дорожная карта: 5 фаз, зависимости, вехи, метрики, временная шкала |
 | [`docs/cjm.md`](docs/cjm.md) | Customer Journey Map по 3 персонам: этапы, эмоции, боли и решения по фазам |
-| [`docs/ui-research.md`](docs/ui-research.md) | UI-исследование текущего сайта и принципы будущего интерфейса |
-| [`docs/design-system.md`](docs/design-system.md) | Дизайн-система: токены (цвет, типографика, сетка), компоненты, законы UI |
+| [`docs/ui-research.md`](docs/ui-research.md) | Подробное UI-исследование: методология (эвристики + 10 слоёв), протокол живого аудита, бенчмарк, приоритеты |
+| [`docs/design-system.md`](docs/design-system.md) | Дизайн-система v2: токены, компоненты с состояниями, доступность/контраст, motion/z-index, changelog |
+| [`site/styleguide.html`](site/styleguide.html) | Живой styleguide — рендерит всю дизайн-систему |
+| [`site/tokens.json`](site/tokens.json) | Машиночитаемые дизайн-токены (W3C-формат) |
 | [`site/index.html`](site/index.html) · [`site/styles.css`](site/styles.css) | Полноценная первая страница сайта на дизайн-системе |
 | [`pwa/app/index.html`](pwa/app/index.html) | Первый экран приложения (мобильный прототип главной) |
 | [`docs/screenshots/`](docs/screenshots/) | Скриншоты первого экрана |

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дизайн-система Betonicum — Styleguide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sg-head { background: var(--c-primary-800); color:#fff; padding: var(--sp-7) 0; }
+  .sg-head h1 { color:#fff; font-size: var(--fs-h1); }
+  .sg-head p { color:#c4d2e2; margin-top: var(--sp-3); font-size: var(--fs-lead); }
+  .sg-sec { padding: var(--sp-7) 0; border-bottom: 1px solid var(--c-line); }
+  .sg-label { font-size: var(--fs-cap); font-weight: 700; letter-spacing:.14em; text-transform:uppercase; color: var(--c-accent-600); margin-bottom: var(--sp-2); }
+  .sg-grid { display:grid; gap: var(--sp-4); }
+  .sg-colors { grid-template-columns: repeat(6, 1fr); }
+  .sg-swatch b { display:block; font-size: var(--fs-small); margin-top: var(--sp-2); }
+  .sg-swatch code { font-size: var(--fs-cap); color: var(--c-muted); }
+  .type-row { padding: var(--sp-3) 0; border-bottom: 1px dashed var(--c-line); }
+  .type-row small { color: var(--c-faint); font-size: var(--fs-cap); }
+  .demo { display:flex; gap: var(--sp-3); flex-wrap: wrap; align-items:center; }
+  @media (max-width: 992px){ .sg-colors { grid-template-columns: repeat(3,1fr);} }
+</style>
+</head>
+<body>
+
+<header class="sg-head">
+  <div class="container">
+    <span class="sg-label" style="color:var(--c-accent-500)">Design System · v2.0</span>
+    <h1>Дизайн-система Betonicum</h1>
+    <p>Единый визуальный язык бренда Resalux: токены, типографика и компоненты с состояниями.</p>
+  </div>
+</header>
+
+<!-- ЦВЕТ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">01 — Цвет</div>
+  <h2 class="title">Палитра</h2>
+  <p class="u-muted" style="margin:var(--sp-2) 0 var(--sp-5)">Бренд (navy) · акцент (оранжевый, только действия) · бетонные нейтрали · семантика.</p>
+  <div class="sg-grid sg-colors">
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-primary-900)"></div><b>primary-900</b><code>#0f2238</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-primary-800)"></div><b>primary-800</b><code>#16314f</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-primary-700)"></div><b>primary-700</b><code>#1e4068</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-primary-100)"></div><b>primary-100</b><code>#e7eef6</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-accent-500)"></div><b>accent-500</b><code>#f08c26</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-accent-600)"></div><b>accent-600</b><code>#d97a18</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-canvas)"></div><b>canvas</b><code>#eef1f5</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-concrete)"></div><b>concrete</b><code>#dfe5ec</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-ink)"></div><b>ink</b><code>#1c2733</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-muted)"></div><b>muted</b><code>#5a6b7d</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-success)"></div><b>success</b><code>#2e7d32</code></div>
+    <div class="sg-swatch"><div class="swatch-box" style="background:var(--c-danger)"></div><b>danger</b><code>#b03a2e</code></div>
+  </div>
+</div></section>
+
+<!-- ТИПОГРАФИКА -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">02 — Типографика</div>
+  <h2 class="title">Шкала · Manrope</h2>
+  <div style="margin-top:var(--sp-5)">
+    <div class="type-row"><span style="font-size:var(--fs-display);font-weight:800;line-height:1.08">Display 52</span> <small>· hero H1 / 800</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-h1);font-weight:800">Heading 1 — 40</span> <small>· 800</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-h2);font-weight:800">Heading 2 — 30</span> <small>· 800</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-h3);font-weight:800">Heading 3 — 22</span> <small>· 800</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-lead)">Lead 18 — подзаголовок секции, спокойный вес</span> <small>· 400–500</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-body)">Body 16 — основной текст абзацев, оптимальная читаемость для длинных описаний систем.</span> <small>· 400</small></div>
+    <div class="type-row"><span style="font-size:var(--fs-small)">Small 14 — подписи, метаданные, теги</span> <small>· 400–600</small></div>
+    <div class="type-row"><span class="overline" style="margin:0">Overline 12 — надзаголовок</span> <small>· 700 uppercase tracking .14em</small></div>
+  </div>
+</div></section>
+
+<!-- КНОПКИ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">03 — Кнопки и состояния</div>
+  <h2 class="title">Buttons</h2>
+  <div class="demo" style="margin-top:var(--sp-5)">
+    <button class="btn btn--primary">Primary</button>
+    <button class="btn btn--dark">Dark</button>
+    <button class="btn btn--ghost">Ghost</button>
+    <button class="btn btn--primary btn--loading">Loading</button>
+    <button class="btn btn--primary" disabled>Disabled</button>
+    <button class="btn btn--primary btn--sm">Small</button>
+    <button class="btn btn--primary btn--lg">Large CTA</button>
+  </div>
+  <p class="u-muted" style="margin-top:var(--sp-4);font-size:var(--fs-small)">Правило: один <code>primary</code> (оранжевый) в зоне видимости — эффект Ван Ресторфа. Фокус — оранжевое кольцо (см. таб-навигацию).</p>
+</div></section>
+
+<!-- БЕЙДЖИ / ТЕГИ / ЧИПЫ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">04 — Бейджи, теги, чипы</div>
+  <div class="demo" style="margin-top:var(--sp-5)">
+    <span class="badge badge--success"><span class="dot"></span>В наличии</span>
+    <span class="badge badge--info">Новинка</span>
+    <span class="badge badge--warning">Под заказ</span>
+    <span class="badge badge--danger">Снят с производства</span>
+    <span class="badge badge--neutral">с 2001</span>
+    <span class="tag">противоскользящее</span>
+    <span class="tag tag--accent">пищевое производство</span>
+    <span class="chip">🥩 Мясопереработка</span>
+  </div>
+</div></section>
+
+<!-- ФОРМЫ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">05 — Поля и валидация</div>
+  <div class="sg-grid" style="grid-template-columns:repeat(3,1fr);margin-top:var(--sp-5)">
+    <div class="field-group"><label class="field-label">Имя</label><input class="field" placeholder="Введите имя"><span class="field-help">Как к вам обращаться</span></div>
+    <div class="field-group"><label class="field-label">Телефон</label><input class="field field--error" value="+7 000"><span class="field-error">Неверный формат номера</span></div>
+    <div class="field-group"><label class="field-label">Email</label><input class="field field--success" value="info@company.ru"><span class="field-help" style="color:var(--c-success)">✓ Корректно</span></div>
+  </div>
+</div></section>
+
+<!-- АЛЕРТЫ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">06 — Алерты</div>
+  <div class="u-stack" style="margin-top:var(--sp-5)">
+    <div class="alert alert--info">Подбор системы займёт 3 шага — без знания марок.</div>
+    <div class="alert alert--success">Заявка отправлена. Инженер перезвонит в рабочий день.</div>
+    <div class="alert alert--warning">Для морозильных камер уточните температуру эксплуатации.</div>
+    <div class="alert alert--danger">Не удалось отправить форму. Проверьте соединение.</div>
+  </div>
+</div></section>
+
+<!-- НАВИГАЦИЯ: крошки/табы -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">07 — Навигация</div>
+  <ul class="breadcrumb" style="margin-top:var(--sp-5)"><li><a href="#">Главная</a></li><li><a href="#">Продукция</a></li><li>Resalux TG</li></ul>
+  <div class="tabs" style="margin-top:var(--sp-5)">
+    <div class="tab tab--active">Описание</div>
+    <div class="tab">Характеристики</div>
+    <div class="tab">Документация</div>
+    <div class="tab">Расход</div>
+  </div>
+</div></section>
+
+<!-- СПЕК-ТАБЛИЦА -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">08 — Спецификации</div>
+  <h2 class="title">Таблица характеристик</h2>
+  <table class="spec" style="margin-top:var(--sp-5)">
+    <thead><tr><th>Параметр</th><th>Resalux TG</th><th>Resalux SL</th><th>Resalux SR</th></tr></thead>
+    <tbody>
+      <tr><td>Толщина слоя</td><td>4–9 мм</td><td>2–4 мм</td><td>3–6 мм</td></tr>
+      <tr><td>Температура эксплуатации</td><td>−40…+120 °C</td><td>−20…+80 °C</td><td>−30…+100 °C</td></tr>
+      <tr><td>Противоскользящие свойства</td><td>R11–R13</td><td>R9–R10</td><td>R11–R12</td></tr>
+      <tr><td>Режим нагрузок</td><td>сверхтяжёлый</td><td>средний/тяжёлый</td><td>тяжёлый</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<!-- КАРТОЧКИ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">09 — Карточки</div>
+  <div class="sg-grid" style="grid-template-columns:repeat(3,1fr);margin-top:var(--sp-5)">
+    <article class="card card--hover sys">
+      <div class="sys__swatch" style="background:linear-gradient(90deg,#b0413e,#8f2e2c)"></div>
+      <h3>Resalux TG</h3>
+      <div class="sys__for">Пищевые производства, тяжёлые нагрузки</div>
+      <div class="sys__tags"><span class="tag">противоскольжение</span><span class="tag">−40…+120 °C</span></div>
+      <div class="sys__foot"><a href="#">Подробнее →</a><a class="doc" href="#">ТДС</a></div>
+    </article>
+    <article class="card"><h3>Базовая карточка</h3><p class="u-muted" style="margin-top:var(--sp-2);font-size:var(--fs-small)">Контейнер по умолчанию: surface, бордер, радиус lg, тень sm.</p></article>
+    <div class="quote-card"><h3>Quote-карточка</h3><p>Плавающая форма в hero (тень lg).</p><input class="field" placeholder="Телефон" style="margin-top:var(--sp-3)"><button class="btn btn--primary btn--block" style="margin-top:var(--sp-3)">Получить расчёт</button></div>
+  </div>
+</div></section>
+
+<!-- ОТСТУПЫ / РАДИУСЫ / ТЕНИ -->
+<section class="sg-sec"><div class="container">
+  <div class="sg-label">10 — Отступы · радиусы · тени</div>
+  <div class="demo" style="margin-top:var(--sp-5);align-items:flex-end">
+    <div style="text-align:center"><div style="width:4px;height:4px;background:var(--c-accent-500)"></div><small>sp-1</small></div>
+    <div style="text-align:center"><div style="width:16px;height:16px;background:var(--c-accent-500)"></div><small>sp-4</small></div>
+    <div style="text-align:center"><div style="width:32px;height:32px;background:var(--c-accent-500)"></div><small>sp-6</small></div>
+    <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-accent-500)"></div><small>sp-8</small></div>
+  </div>
+  <div class="demo" style="margin-top:var(--sp-6)">
+    <div style="width:90px;height:60px;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--r-sm)"></div>
+    <div style="width:90px;height:60px;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--r-md)"></div>
+    <div style="width:90px;height:60px;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--r-lg)"></div>
+    <div style="width:90px;height:60px;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--r-xl)"></div>
+  </div>
+  <div class="demo" style="margin-top:var(--sp-6)">
+    <div style="width:120px;height:64px;background:#fff;border-radius:var(--r-md);box-shadow:var(--sh-sm)"></div>
+    <div style="width:120px;height:64px;background:#fff;border-radius:var(--r-md);box-shadow:var(--sh-md)"></div>
+    <div style="width:120px;height:64px;background:#fff;border-radius:var(--r-md);box-shadow:var(--sh-lg)"></div>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="container"><div class="footer__bottom" style="border:0;padding-top:0">
+  <span>© 2026 Betonicum · Дизайн-система v2.0</span>
+  <span>Источник истины: site/styles.css · site/tokens.json</span>
+</div></div></footer>
+
+</body>
+</html>
