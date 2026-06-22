@@ -15,7 +15,7 @@
 | [`docs/roadmap.md`](docs/roadmap.md) | Единая дорожная карта: 5 фаз, зависимости, вехи, метрики, временная шкала |
 | [`docs/cjm.md`](docs/cjm.md) | Customer Journey Map по 3 персонам: этапы, эмоции, боли и решения по фазам |
 | [`docs/ui-research.md`](docs/ui-research.md) | Подробное UI-исследование: методология (эвристики + 10 слоёв), протокол живого аудита, бенчмарк, приоритеты |
-| [`docs/design-system.md`](docs/design-system.md) | Дизайн-система v4 (официальный брендбук: near-black + красный, Manrope/Golos/JetBrains Mono, тугие радиусы) + слой сложной анимации |
+| [`docs/design-system.md`](docs/design-system.md) | Дизайн-система v5 (светлая тема на базе брендбука: красный акцент, Manrope/Golos/JetBrains Mono) + блоки отзывов/сертификатов/галереи + сложная анимация |
 | [`site/anim.js`](site/anim.js) | Сложная анимация: scroll-reveal, параллакс, счётчики, магнитные кнопки, 3D-tilt, прогресс скролла |
 | [`site/styleguide.html`](site/styleguide.html) | Живой styleguide — рендерит всю дизайн-систему |
 | [`site/tokens.json`](site/tokens.json) | Машиночитаемые дизайн-токены (W3C-формат) |

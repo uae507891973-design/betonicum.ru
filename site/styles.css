@@ -760,3 +760,122 @@ html.js-anim .guarantee.is-in .compare__row:nth-child(6){animation-delay:.25s}
   .hero__grid, .hero__glow, .scrollbar-progress { animation: none !important; }
   .tilt, .btn.is-magnetic { transform: none !important; }
 }
+
+/* ============================================================
+   DESIGN SYSTEM v5 — СВЕТЛАЯ ТЕМА (на базе брендбука)
+   Светлый фон (paper/fog), тёмный текст, красный акцент сохранён.
+   Тёмными остаются: топбар, hero-декор-пик(тёмный), блок гарантий,
+   секции --ink, футер. + порядок в меню, фикс шапки, новые блоки.
+   ============================================================ */
+:root {
+  --c-canvas:   #F3F4F6;   /* fog — фон страницы */
+  --c-surface:  #FFFFFF;   /* карточки */
+  --c-concrete: #ECEEF1;   /* светлые секции-разделители */
+  --c-ink:      #15171C;   /* основной текст (тёмный) */
+  --c-muted:    #5B606A;   /* вторичный */
+  --c-faint:    #8A8F98;   /* подписи */
+  --c-line:     #E4E7EC;   /* границы */
+
+  --c-primary-900: #15171C; /* футер (тёмный) */
+  --c-primary-800: #1B1D23; /* тёмные секции/кнопки */
+  --c-primary-700: #262A33;
+  --c-primary-100: #EFF1F4; /* светлые приподнятые подложки (теги, иконки) */
+  --c-primary-050: #F5F6F8;
+
+  --c-accent-700: #B0151B;  /* тёмно-красный — акцентный текст на светлом (AA) */
+  --c-accent-100: rgba(216,35,42,.10);
+
+  --sh-sm: 0 1px 3px rgba(21,23,28,.08);
+  --sh-md: 0 10px 24px rgba(21,23,28,.10);
+  --sh-lg: 0 24px 56px rgba(21,23,28,.16);
+}
+
+/* ---------- ШАПКА: светлая, зафиксированная ---------- */
+.header {
+  position: sticky; top: 0; z-index: var(--z-sticky, 100);
+  background: rgba(255,255,255,.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--c-line);
+}
+.header.is-scrolled { background: rgba(255,255,255,.96); box-shadow: 0 6px 22px rgba(21,23,28,.10); }
+.brand__name, .header__phone b { color: var(--c-ink); }
+.nav a { color: var(--c-ink); position: relative; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px; background: var(--c-accent-500); transition: right var(--dur-base) var(--ease-out); }
+.nav a:hover { color: var(--c-accent-600); }
+.nav a:hover::after { right: 0; }
+/* топбар оставляем тёмным для контраста */
+.topbar { background: var(--c-primary-900); color: #aab2bd; }
+.topbar a { color: #c7cdd5; }
+.topbar a:hover { color: #fff; }
+
+/* ---------- HERO: светлый ---------- */
+.hero { background: linear-gradient(165deg, #FFFFFF 0%, #F3F4F6 55%, #ECEEF1 100%); color: var(--c-ink); }
+.hero::after { background: repeating-linear-gradient(135deg, rgba(21,23,28,.035) 0 22px, transparent 22px 44px); }
+.hero h1 { color: var(--c-ink); }
+.hero__lead { color: var(--c-muted); }
+.hero__facts div b { color: var(--c-ink); }
+.hero__facts div span { color: var(--c-faint); }
+.hero__overline { color: var(--c-accent-600); }
+.hero__grid { opacity: .5; }
+.hero .btn--ghost-light { background: #fff; border: 1.5px solid var(--c-line); color: var(--c-ink); }
+.hero .btn--ghost-light:hover { border-color: var(--c-ink); }
+
+/* поля на светлом */
+.field { background: #fff; }
+.field:focus { border-color: var(--c-accent-500); }
+
+/* ---------- ОТРАСЛИ: карточки с текстом ---------- */
+.ind-grid { grid-template-columns: repeat(3, 1fr); }
+.ind { text-align: left; padding: var(--sp-5); }
+.ind .emoji { font-size: 30px; }
+.ind b { display: block; margin-top: var(--sp-3); font-size: var(--fs-body); }
+.ind span { display: block; margin-top: var(--sp-2); font-size: var(--fs-small); line-height: 1.5; color: var(--c-muted); }
+.ind:hover { border-color: var(--c-accent-500); }
+
+/* ---------- ФОТОГАЛЕРЕЯ ---------- */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: var(--sp-3); }
+.gallery__item {
+  position: relative; overflow: hidden; border-radius: var(--r-lg);
+  background: var(--g, #2a323d); background-size: cover; background-position: center;
+  display: flex; align-items: flex-end; cursor: pointer; box-shadow: var(--sh-sm);
+}
+.gallery__item::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 38px, rgba(0,0,0,.04) 38px 76px); }
+.gallery__item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,17,22,.78), transparent 55%); transition: background var(--dur-base); }
+.gallery__item:hover::after { background: linear-gradient(to top, rgba(15,17,22,.86), rgba(216,35,42,.18)); }
+.gallery__item--wide { grid-column: span 2; }
+.gallery__item--tall { grid-row: span 2; }
+.gallery__cap { position: relative; z-index: 1; color: #fff; font-size: var(--fs-small); font-weight: var(--fw-bold); padding: var(--sp-4); transform: translateY(6px); transition: transform var(--dur-base) var(--ease-out); }
+.gallery__item:hover .gallery__cap { transform: translateY(0); }
+
+/* ---------- ОТЗЫВЫ ---------- */
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.review { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-sm); display: flex; flex-direction: column; }
+.review__stars { color: var(--c-accent-500); letter-spacing: 2px; font-size: var(--fs-body); }
+.review blockquote { margin: var(--sp-4) 0; font-size: var(--fs-body); line-height: 1.6; color: var(--c-ink); }
+.review__author { margin-top: auto; display: flex; align-items: center; gap: var(--sp-3); }
+.review__avatar { width: 44px; height: 44px; border-radius: var(--r-pill); background: var(--c-accent-100); color: var(--c-accent-700); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-small); flex: none; }
+.review__author b { display: block; font-size: var(--fs-small); }
+.review__author span span { display: block; font-size: var(--fs-cap); color: var(--c-muted); }
+
+/* ---------- СЕРТИФИКАТЫ ---------- */
+.certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+.cert { display: flex; flex-direction: column; gap: var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-5); box-shadow: var(--sh-sm); transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base); cursor: pointer; }
+.cert:hover { transform: translateY(-4px); border-color: var(--c-accent-500); }
+.cert__doc { position: relative; height: 92px; border-radius: var(--r-md); background: var(--c-primary-050); border: 1px solid var(--c-line); display: flex; align-items: center; justify-content: center; }
+.cert__doc::before { content: ""; position: absolute; left: 50%; top: 18px; transform: translateX(-50%); width: 46px; height: 56px; background: #fff; border: 1px solid var(--c-line); border-radius: 3px; box-shadow: var(--sh-sm); }
+.cert__seal { position: relative; z-index: 1; width: 30px; height: 30px; border-radius: var(--r-pill); background: var(--c-accent-500); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-top: 12px; box-shadow: 0 4px 12px rgba(216,35,42,.4); }
+.cert__body b { display: block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .01em; font-size: var(--fs-body); }
+.cert__body > span { display: block; margin-top: 6px; font-size: var(--fs-small); color: var(--c-muted); line-height: 1.45; }
+.cert__dl { margin-top: var(--sp-3) !important; color: var(--c-accent-600) !important; font-weight: 700; font-size: var(--fs-small) !important; font-family: var(--font-mono); }
+.certs__note { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-5); padding: var(--sp-4) var(--sp-5); background: var(--c-accent-100); border-radius: var(--r-md); font-size: var(--fs-small); color: var(--c-ink); }
+.certs__note svg { width: 24px; height: 24px; color: var(--c-accent-600); flex: none; }
+.certs__note a { color: var(--c-accent-700); font-weight: 700; text-decoration: underline; }
+
+@media (max-width: 992px) {
+  .ind-grid, .reviews { grid-template-columns: 1fr 1fr; }
+  .certs { grid-template-columns: 1fr 1fr; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery__item--wide, .gallery__item--tall { grid-column: auto; grid-row: auto; }
+}
+@media (max-width: 560px) {
+  .ind-grid, .reviews, .certs, .gallery { grid-template-columns: 1fr; }
+}

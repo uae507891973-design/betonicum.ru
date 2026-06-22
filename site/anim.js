@@ -34,8 +34,8 @@
       '<div class="hero__grid"></div>' +
       '<div class="hero__glow"></div>' +
       '<svg class="hero__peak" viewBox="420 235 360 345" aria-hidden="true">' +
-        '<path d="M600 250 L760 560 L440 560 Z" fill="#ffffff" opacity=".95"/>' +
-        '<path d="M600 250 L600 560 L440 560 Z" fill="#C9CCD2"/>' +
+        '<path d="M600 250 L760 560 L440 560 Z" fill="#1B1D23" opacity=".92"/>' +
+        '<path d="M600 250 L600 560 L440 560 Z" fill="#33363E"/>' +
         '<path d="M600 400 L680 560 L520 560 Z" fill="#D8232A"/>' +
         '<path d="M600 400 L600 560 L520 560 Z" fill="#A8161C"/>' +
       '</svg>';
@@ -77,6 +77,7 @@
   // карточки/плитки группами со stagger
   [['.trust__item', ''], ['.wizard__step', 'scale'], ['.sys', 'scale'],
    ['.guarantee__card', 'scale'], ['.ind', 'scale'], ['.case', ''],
+   ['.gallery__item', 'scale'], ['.review', ''], ['.cert', 'scale'],
    ['.duo__card', ''], ['.faq__item', ''], ['.hero__facts > div', '']
   ].forEach(function (pair) {
     var groups = {};
@@ -158,7 +159,7 @@
 
   /* ---------- 3D-tilt карточек ---------- */
   if (!reduced && window.matchMedia('(pointer:fine)').matches) {
-    document.querySelectorAll('.guarantee__card, .sys, .ind, .case').forEach(function (c) {
+    document.querySelectorAll('.guarantee__card, .sys, .ind, .case, .cert, .gallery__item').forEach(function (c) {
       c.classList.add('tilt');
       c.addEventListener('mousemove', function (e) {
         var r = c.getBoundingClientRect();
