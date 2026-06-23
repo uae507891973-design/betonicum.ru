@@ -879,3 +879,29 @@ html.js-anim .guarantee.is-in .compare__row:nth-child(6){animation-delay:.25s}
 @media (max-width: 560px) {
   .ind-grid, .reviews, .certs, .gallery { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   v5.1 — ШАПКА: один ряд без переносов, компактнее + отступ до hero
+   ============================================================ */
+/* всё содержимое шапки — строго в один ряд */
+.header .container { gap: var(--sp-4); flex-wrap: nowrap; min-width: 0; }
+.brand { flex: none; }
+.brand__name { font-size: 17px; }
+.nav { flex-wrap: nowrap; gap: 18px; margin-left: var(--sp-3); white-space: nowrap; }
+.nav a { font-size: 13px; white-space: nowrap; padding: 6px 0; }
+.header__actions { gap: var(--sp-3); flex: none; flex-wrap: nowrap; }
+/* телефон — мельче */
+.header__phone b { font-size: 14px; white-space: nowrap; }
+.header__phone span { font-size: 10.5px; }
+/* CTA в шапке — компактнее, чтобы всё уместилось в строку */
+.header__actions .btn { padding: 9px 16px; font-size: 13px; }
+.header__actions .btn .btn__ic { width: 15px; height: 15px; }
+
+/* отступ от верхнего меню до первого блока */
+.hero { margin-top: var(--sp-5); }
+
+/* на узких экранах меню и так скрыто (бургер-зона) — оставляем телефон/CTA в ряд */
+@media (max-width: 1180px) {
+  .nav { gap: 14px; }
+  .nav a { font-size: 12.5px; }
+}
