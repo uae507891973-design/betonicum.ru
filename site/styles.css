@@ -905,3 +905,31 @@ html.js-anim .guarantee.is-in .compare__row:nth-child(6){animation-delay:.25s}
   .nav { gap: 14px; }
   .nav a { font-size: 12.5px; }
 }
+
+/* ============================================================
+   v5.2 — БЛОК ДЛЯ ИНЖЕНЕРОВ-ТЕХНОЛОГОВ И ПРОЕКТИРОВЩИКОВ
+   Технический язык: список «что получите для проекта» + таблица
+   рабочих характеристик. Второй блок страницы.
+   ============================================================ */
+.eng { display: grid; grid-template-columns: 1.05fr .95fr; gap: var(--sp-7); align-items: start; }
+.eng__main h2 { margin-top: var(--sp-2); }
+.eng__main > p { margin: var(--sp-4) 0 var(--sp-5); font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--c-muted); max-width: 54ch; }
+.eng__list { list-style: none; padding: 0; margin: 0 0 var(--sp-6); display: grid; gap: var(--sp-3); }
+.eng__list li { position: relative; padding-left: 34px; font-size: var(--fs-small); line-height: 1.55; color: var(--c-muted); }
+.eng__list li::before { content: ""; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: var(--r-sm); background: var(--c-accent-100); }
+.eng__list li::after { content: "✓"; position: absolute; left: 6px; top: 0; color: var(--c-accent-600); font-weight: 800; font-size: 13px; line-height: 22px; }
+.eng__list b { color: var(--c-ink); font-weight: 700; }
+.eng__cta { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+.eng__spec { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); box-shadow: var(--sh-md); overflow: hidden; position: sticky; top: 96px; }
+.eng__spec-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-4) var(--sp-5); background: var(--c-primary-800); color: #fff; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .02em; font-size: var(--fs-small); }
+.eng__spec-head .badge { background: rgba(255,255,255,.12); color: #fff; }
+.eng__spec .spec { border: 0; border-radius: 0; box-shadow: none; }
+.eng__spec .spec td { height: 42px; }
+.eng__spec .spec td:last-child { text-align: right; font-family: var(--font-mono); color: var(--c-ink); font-weight: 700; }
+.eng__note { padding: var(--sp-4) var(--sp-5); font-size: var(--fs-cap); color: var(--c-faint); border-top: 1px solid var(--c-line); line-height: 1.5; }
+
+@media (max-width: 992px) {
+  .eng { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .eng__spec { position: static; }
+}
