@@ -933,3 +933,47 @@ html.js-anim .guarantee.is-in .compare__row:nth-child(6){animation-delay:.25s}
   .eng { grid-template-columns: 1fr; gap: var(--sp-6); }
   .eng__spec { position: static; }
 }
+
+/* ============================================================
+   v5.3 — ПРИВЕТСТВИЕ ШВЕЙЦАРСКОГО ДИРЕКТОРА (второй блок)
+   Личное лицо компании + закрытие триггеров доверия.
+   ============================================================ */
+.director { display: grid; grid-template-columns: .82fr 1.18fr; gap: var(--sp-8); align-items: start; }
+
+/* портрет-карточка */
+.director__portrait { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-md); position: sticky; top: 96px; }
+.director__photo { position: relative; aspect-ratio: 4/3; }
+.director__bust { width: 100%; height: 100%; }
+.director__bust::after { content: ""; }
+.director__photo::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 34px, rgba(0,0,0,.05) 34px 68px); }
+.director__flag { position: absolute; left: var(--sp-4); top: var(--sp-4); width: 38px; height: 38px; box-shadow: var(--sh-sm); border-radius: 7px; overflow: hidden; }
+.director__flag svg { width: 100%; height: 100%; display: block; }
+.director__plate { padding: var(--sp-5); border-top: 3px solid var(--c-accent-500); }
+.director__plate b { display: block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .01em; font-size: var(--fs-h3); }
+.director__plate span { display: block; font-size: var(--fs-small); color: var(--c-muted); margin-top: 4px; }
+.director__loc { font-family: var(--font-mono); font-size: var(--fs-cap) !important; color: var(--c-faint) !important; margin-top: var(--sp-2) !important; }
+
+/* письмо */
+.director__letter h2 { margin-top: var(--sp-2); max-width: 22ch; }
+.director__text { margin: var(--sp-4) 0 var(--sp-5); }
+.director__text p { font-size: var(--fs-body); line-height: 1.65; color: var(--c-muted); margin-bottom: var(--sp-3); }
+.director__text b { color: var(--c-ink); font-weight: 700; }
+
+/* подпись */
+.director__sign { display: flex; flex-direction: column; gap: 2px; padding-bottom: var(--sp-5); margin-bottom: var(--sp-5); border-bottom: 1px solid var(--c-line); }
+.director__signname { font-family: "Golos Text", cursive; font-style: italic; font-weight: 700; font-size: 30px; color: var(--c-ink); transform: rotate(-3deg); transform-origin: left; width: max-content; }
+.director__signrole { font-size: var(--fs-cap); color: var(--c-faint); margin-top: 6px; }
+
+/* лента триггеров доверия */
+.director__trust { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+.director__trust li { display: flex; gap: var(--sp-3); align-items: flex-start; }
+.director__tic { width: 38px; height: 38px; border-radius: var(--r-md); background: var(--c-primary-100); color: var(--c-accent-600); display: flex; align-items: center; justify-content: center; flex: none; }
+.director__tic svg { width: 22px; height: 22px; }
+.director__trust b { display: block; font-size: var(--fs-small); color: var(--c-ink); }
+.director__trust li > span:last-child { font-size: var(--fs-cap); color: var(--c-muted); line-height: 1.4; }
+
+@media (max-width: 992px) {
+  .director { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .director__portrait { position: static; max-width: 360px; }
+  .director__trust { grid-template-columns: 1fr; }
+}
