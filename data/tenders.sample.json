@@ -1,0 +1,78 @@
+{
+  "_comment": "Реальные зацепки по тендерам на бетон/ЖБИ, найденные через открытый веб-поиск (июнь 2026). Точные НМЦК и сроки подачи закрыты антибот-защитой источников и заполняются автоматически при запуске tender_parser.py с авторизованным доступом (КЭП ЕИС / API агрегатора). null = требует проверки в первоисточнике.",
+  "tenders": [
+    {
+      "object_name": "Поставка бетонной смеси для выполнения работ по ремонту территорий САО в 2026 году",
+      "customer_name": "ГКУ г. Москвы «Дирекция заказчика ЖКХ и благоустройства Северного административного округа»",
+      "customer_region": "Москва",
+      "law": "44",
+      "okpd2": ["23.63"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "source": "ЕИС / открытый поиск",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=поставка+бетонной+смеси+САО"
+    },
+    {
+      "object_name": "Годовая закупка бетона товарного на 2026 год",
+      "customer_name": "ОАО «ОЭМК им. А.А. Угарова»",
+      "customer_region": "Белгородская обл., г. Старый Оскол",
+      "law": "223",
+      "okpd2": ["23.63"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "source": "ЕИС (223-ФЗ) / открытый поиск",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=бетон+ОЭМК"
+    },
+    {
+      "object_name": "Поставка смеси бетонной тяжёлого бетона (товарный бетон)",
+      "customer_name": null,
+      "customer_region": "Ростовская обл.",
+      "law": "коммерческий",
+      "okpd2": ["23.63"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "publish_date": "2026-06-03",
+      "source": "коммерческая площадка / агрегатор",
+      "url": "https://zakupki.kontur.ru/category-region/beton/rostovskaya-oblast"
+    },
+    {
+      "object_name": "Поставка бетона готового для заливки (закупка региональной ГИС)",
+      "customer_name": null,
+      "customer_region": "Республика Крым",
+      "law": "44",
+      "okpd2": ["23.63"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "source": "ГИС «Закупки Республики Крым»",
+      "url": "https://zrk.rk.gov.ru/Portal/Show/Order?link=5190721"
+    },
+    {
+      "object_name": "Поставка товарного бетона / бетонной смеси (государственная закупка)",
+      "customer_name": null,
+      "customer_region": "Ленинградская обл.",
+      "law": "44",
+      "okpd2": ["23.63"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "source": "Госзаказ Ленинградской области",
+      "url": "http://goszakaz.lenobl.ru/competition/competition.do?id=160928"
+    },
+    {
+      "object_name": "Поставка изделий из бетона для строительства (ЖБИ: плиты перекрытия, ФБС)",
+      "customer_name": null,
+      "customer_region": "по РФ",
+      "law": "44/223",
+      "okpd2": ["23.61"],
+      "nmck": null,
+      "volume_m3": null,
+      "deadline_date": null,
+      "source": "ЕИС / агрегатор (профильный код ОКПД2 23.61)",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=ЖБИ+плиты+перекрытия"
+    }
+  ]
+}

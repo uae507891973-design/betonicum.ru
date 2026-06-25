@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+  body { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 10px; color:#1a1a1a; margin: 18px; }
+  h1 { font-size: 18px; margin: 0 0 2px; color:#0b3d2e; }
+  .sub { color:#666; font-size: 10px; margin-bottom: 12px; }
+  .legend { background:#f3f7f5; border:1px solid #d8e6df; border-radius:6px; padding:8px 10px; margin-bottom:12px; font-size:9.5px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #d0d7d4; padding: 5px 6px; vertical-align: top; text-align: left; }
+  th { background:#0b3d2e; color:#fff; font-size: 9.5px; }
+  td.num { text-align:center; color:#888; }
+  td.score { text-align:center; font-weight:bold; color:#0b6e4f; font-size: 12px; }
+  .obj { font-weight:bold; }
+  .reasons { color:#0b6e4f; font-size: 8.5px; margin: 2px 0; }
+  td.nmck { white-space: nowrap; }
+  a { color:#1763a6; font-size: 8.5px; word-break: break-all; }
+  .note { margin-top:14px; font-size:9px; color:#774; background:#fffaf0; border:1px solid #f0e2c0; border-radius:6px; padding:8px 10px; }
+</style></head>
+<body>
+  <h1>Тендеры по тематике «товарный бетон / ЖБИ» — топ по релевантности</h1>
+  <div class="sub">betonicum.ru · сформировано: 2026-06-25 13:09 · позиций: 6</div>
+  <div class="legend">
+    <b>Релевантность (score)</b> считается автоматически: ОКПД2 (23.63 +100, 23.61 +90, 23.64 +60 …),
+    ключевые слова в названии («товарн» +50, «бетонн» +45, «жби» +40 …), объём поставки (+1 за 100 м³),
+    тип закупки. Анти-слова («демонтаж», «алмазная резка», «лаборатор») снижают score, отсекая работы
+    без поставки бетона. Полная логика — в <i>scripts/tender_parser.py</i>.
+  </div>
+  <table>
+    <tr>
+      <th>#</th><th>Score</th><th>Объект закупки / причины / ссылка</th>
+      <th>Заказчик</th><th>Регион</th><th>НМЦК</th><th>Срок подачи</th><th>Закон</th><th>Источник</th>
+    </tr>
+    
+        <tr>
+          <td class="num">1</td>
+          <td class="score">240</td>
+          <td>
+            <div class="obj">Поставка товарного бетона / бетонной смеси (государственная закупка)</div>
+            <div class="reasons">▸ ОКПД2 23.63 (+100), «товарн» (+50), «бетонн» (+45), «бетон» (+40)</div>
+            <a href="http://goszakaz.lenobl.ru/competition/competition.do?id=160928">http://goszakaz.lenobl.ru/competition/competition.do?id=160928</a>
+          </td>
+          <td>—</td>
+          <td>Ленинградская обл.</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>44</td>
+          <td>Госзаказ Ленинградской области</td>
+        </tr>
+
+        <tr>
+          <td class="num">2</td>
+          <td class="score">235</td>
+          <td>
+            <div class="obj">Поставка смеси бетонной тяжёлого бетона (товарный бетон)</div>
+            <div class="reasons">▸ ОКПД2 23.63 (+100), «товарн» (+50), «бетонн» (+45), «бетон» (+40)</div>
+            <a href="https://zakupki.kontur.ru/category-region/beton/rostovskaya-oblast">https://zakupki.kontur.ru/category-region/beton/rostovskaya-oblast</a>
+          </td>
+          <td>—</td>
+          <td>Ростовская обл.</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>коммерческий</td>
+          <td>коммерческая площадка / агрегатор</td>
+        </tr>
+
+        <tr>
+          <td class="num">3</td>
+          <td class="score">210</td>
+          <td>
+            <div class="obj">Поставка изделий из бетона для строительства (ЖБИ: плиты перекрытия, ФБС)</div>
+            <div class="reasons">▸ ОКПД2 23.61 (+90), «бетон» (+40), «жби» (+40), «фбс» (+35)</div>
+            <a href="https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=ЖБИ+плиты+перекрытия">https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=ЖБИ+плиты+перекрытия</a>
+          </td>
+          <td>—</td>
+          <td>по РФ</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>44/223</td>
+          <td>ЕИС / агрегатор (профильный код ОКПД2 23.61)</td>
+        </tr>
+
+        <tr>
+          <td class="num">4</td>
+          <td class="score">195</td>
+          <td>
+            <div class="obj">Годовая закупка бетона товарного на 2026 год</div>
+            <div class="reasons">▸ ОКПД2 23.63 (+100), «товарн» (+50), «бетон» (+40)</div>
+            <a href="https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=бетон+ОЭМК">https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=бетон+ОЭМК</a>
+          </td>
+          <td>ОАО «ОЭМК им. А.А. Угарова»</td>
+          <td>Белгородская обл., г. Старый Оскол</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>223</td>
+          <td>ЕИС (223-ФЗ) / открытый поиск</td>
+        </tr>
+
+        <tr>
+          <td class="num">5</td>
+          <td class="score">190</td>
+          <td>
+            <div class="obj">Поставка бетонной смеси для выполнения работ по ремонту территорий САО в 2026 году</div>
+            <div class="reasons">▸ ОКПД2 23.63 (+100), «бетонн» (+45), «бетон» (+40)</div>
+            <a href="https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=поставка+бетонной+смеси+САО">https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=поставка+бетонной+смеси+САО</a>
+          </td>
+          <td>ГКУ г. Москвы «Дирекция заказчика ЖКХ и благоустройства Северного административного округа»</td>
+          <td>Москва</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>44</td>
+          <td>ЕИС / открытый поиск</td>
+        </tr>
+
+        <tr>
+          <td class="num">6</td>
+          <td class="score">145</td>
+          <td>
+            <div class="obj">Поставка бетона готового для заливки (закупка региональной ГИС)</div>
+            <div class="reasons">▸ ОКПД2 23.63 (+100), «бетон» (+40)</div>
+            <a href="https://zrk.rk.gov.ru/Portal/Show/Order?link=5190721">https://zrk.rk.gov.ru/Portal/Show/Order?link=5190721</a>
+          </td>
+          <td>—</td>
+          <td>Республика Крым</td>
+          <td class="nmck">—</td>
+          <td>—</td>
+          <td>44</td>
+          <td>ГИС «Закупки Республики Крым»</td>
+        </tr>
+  </table>
+  <div class="note">
+    <b>О данных в этом отчёте.</b> Точные значения НМЦК и сроков подачи доступны только при
+    авторизованном доступе к ЕИС (КЭП/токен) или через платный API агрегатора — публичные источники
+    блокируют автоматический сбор. Поля, помеченные «—», заполняются автоматически при запуске
+    скрипта с настроенным источником данных. Перед подачей заявки сверяйте параметры в первоисточнике
+    по ссылке.
+  </div>
+</body></html>
