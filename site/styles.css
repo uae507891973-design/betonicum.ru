@@ -977,3 +977,62 @@ html.js-anim .guarantee.is-in .compare__row:nth-child(6){animation-delay:.25s}
   .director__portrait { position: static; max-width: 360px; }
   .director__trust { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   v5.4 — ЛИДОГЕНЕРАЦИЯ: калькулятор, интерактивный CTA, FAB, тост
+   ============================================================ */
+/* ----- Калькулятор в hero ----- */
+.calc__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); }
+.calc__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--sp-3); margin-top: var(--sp-4); }
+.calc select.field { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235B606A' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+.calc__out { margin-top: var(--sp-4); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+.calc__row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; font-size: var(--fs-small); color: var(--c-muted); border-bottom: 1px solid var(--c-line); }
+.calc__row b { font-family: var(--font-mono); color: var(--c-ink); font-weight: 700; transition: color var(--dur-base); }
+.calc__row--total { background: var(--c-accent-100); border-bottom: 0; }
+.calc__row--total span { color: var(--c-ink); font-weight: 700; }
+.calc__row--total b { color: var(--c-accent-600); font-size: var(--fs-body); }
+.calc__row b.bump { animation: numBump .35s var(--ease-out); }
+@keyframes numBump { 0% { transform: scale(1); } 40% { transform: scale(1.12); color: var(--c-accent-500); } 100% { transform: scale(1); } }
+.calc__hint { font-size: var(--fs-cap); color: var(--c-faint); margin-top: var(--sp-2); line-height: 1.4; }
+.calc__form { display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-4); }
+.calc__perk { display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-3); padding: 10px 12px; background: var(--c-success-100); border-radius: var(--r-md); font-size: var(--fs-cap); color: var(--c-success); font-weight: 600; }
+.calc__perk svg { width: 18px; height: 18px; flex: none; }
+
+/* ----- Интерактивный CTA с плюшками ----- */
+.cta-lead { grid-template-columns: 1.1fr .9fr; align-items: center; }
+.cta-lead__over { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .14em; font-size: var(--fs-cap); font-weight: 700; color: #fff; opacity: .85; }
+.cta-lead h2 { margin-top: var(--sp-3); }
+.cta-perks { list-style: none; padding: 0; margin: var(--sp-5) 0 0; display: grid; gap: var(--sp-2); }
+.cta-perks li { display: flex; align-items: center; gap: var(--sp-3); font-size: var(--fs-small); color: #fff; }
+.cta-perks svg { width: 20px; height: 20px; flex: none; background: rgba(255,255,255,.18); border-radius: var(--r-pill); padding: 3px; }
+.cta-lead__form { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r-lg); padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-3); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.cta-chips__label { font-size: var(--fs-cap); color: #fff; opacity: .9; }
+.cta-chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.chip--toggle { cursor: pointer; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35); color: #fff; padding: 7px 14px; font-size: var(--fs-small); transition: transform var(--dur-fast) var(--ease-out), background var(--dur-base); }
+.chip--toggle:hover { transform: translateY(-1px); }
+.chip--toggle.is-on { background: #fff; color: var(--c-accent-600); border-color: #fff; font-weight: 700; }
+.chip--toggle.is-on::before { content: "✓ "; }
+.cta-lead__form .field { background: rgba(255,255,255,.95); border-color: transparent; color: #1c2733; }
+.cta-note { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-cap); color: #fff; opacity: .9; }
+.cta-note svg { width: 16px; height: 16px; flex: none; }
+
+/* ----- Плавающая кнопка-лидолов (FAB) ----- */
+.fab-cta { position: fixed; right: 22px; bottom: 22px; z-index: var(--z-toast); display: inline-flex; align-items: center; gap: var(--sp-2); background: var(--c-accent-500); color: #fff; border-radius: var(--r-pill); padding: 14px 20px; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .02em; font-size: var(--fs-small); font-weight: 700; box-shadow: 0 10px 28px rgba(216,35,42,.45); opacity: 0; transform: translateY(24px) scale(.9); pointer-events: none; transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), background var(--dur-base); }
+.fab-cta.is-shown { opacity: 1; transform: none; pointer-events: auto; }
+.fab-cta:hover { background: var(--c-accent-600); transform: translateY(-2px); }
+.fab-cta svg { width: 22px; height: 22px; position: relative; z-index: 1; }
+.fab-cta__label { position: relative; z-index: 1; }
+.fab-cta__ring { position: absolute; inset: 0; border-radius: var(--r-pill); border: 2px solid var(--c-accent-500); animation: fabPulse 2.2s var(--ease-out) infinite; }
+@keyframes fabPulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.35); opacity: 0; } }
+@media (max-width: 560px) { .fab-cta__label { display: none; } .fab-cta { padding: 14px; } }
+@media (prefers-reduced-motion: reduce) { .fab-cta__ring { animation: none; } .calc__row b.bump { animation: none; } }
+
+/* ----- Тост ----- */
+.toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%) translateY(20px); z-index: var(--z-toast); background: var(--c-primary-900); color: #fff; border-radius: var(--r-md); padding: 14px 20px; font-size: var(--fs-small); box-shadow: var(--sh-lg); opacity: 0; pointer-events: none; transition: opacity var(--dur-base), transform var(--dur-base) var(--ease-out); max-width: 90vw; display: flex; align-items: center; gap: var(--sp-2); }
+.toast.is-shown { opacity: 1; transform: translateX(-50%); }
+.toast b { color: var(--c-accent-500); }
+
+@media (max-width: 992px) {
+  .cta-lead { grid-template-columns: 1fr; }
+  .calc__grid { grid-template-columns: 1fr 1fr; }
+}

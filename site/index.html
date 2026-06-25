@@ -80,16 +80,41 @@
       </div>
     </div>
 
-    <aside class="quote-card" id="quote">
-      <h3>Рассчитать стоимость</h3>
-      <p>Инженер перезвонит в рабочий день, уточнит площадь и условия эксплуатации.</p>
-      <form>
+    <aside class="quote-card calc" id="quote">
+      <div class="calc__head">
+        <h3>Калькулятор расхода и стоимости</h3>
+        <span class="badge badge--neutral">онлайн</span>
+      </div>
+      <div class="calc__grid">
+        <label class="field-group">
+          <span class="field-label">Площадь, м²</span>
+          <input class="field" id="calc-area" type="number" min="1" step="50" value="500" inputmode="numeric">
+        </label>
+        <label class="field-group">
+          <span class="field-label">Тип покрытия</span>
+          <select class="field" id="calc-sys">
+            <option value="sl">Наливное гладкое (SL)</option>
+            <option value="tg" selected>Противоскользящее (TG)</option>
+            <option value="sr">Износостойкое (SR)</option>
+            <option value="as">Антистатическое (SL AS)</option>
+          </select>
+        </label>
+      </div>
+      <div class="calc__out">
+        <div class="calc__row"><span>Толщина системы</span><b id="calc-th">6 мм</b></div>
+        <div class="calc__row"><span>Расход материала</span><b id="calc-kg">≈ 6 000 кг</b></div>
+        <div class="calc__row calc__row--total"><span>Ориентировочно</span><b id="calc-sum">от 17 500 €</b></div>
+      </div>
+      <p class="calc__hint">Предварительно, без учёта работ и логистики. Точную смету пришлёт инженер.</p>
+      <form class="calc__form" id="lead-hero">
         <input class="field" type="text" placeholder="Имя" autocomplete="name">
         <input class="field" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel">
-        <input class="field" type="text" placeholder="Отрасль или объект (необязательно)">
-        <button class="btn btn--primary btn--block" type="button">Получить расчёт<svg class="btn__ic btn__ic--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn btn--primary btn--block" type="submit">Получить точный расчёт<svg class="btn__ic btn__ic--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
-      <p class="note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+      <div class="calc__perk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        <span>Бесплатно: подбор системы, смета и ТДС — без обязательств</span>
+      </div>
     </aside>
   </div>
 </section>
@@ -645,18 +670,33 @@
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="section">
+<!-- ===== CTA (интерактивный, с плюшками) ===== -->
+<section class="section" id="cta">
   <div class="container">
-    <div class="cta-band">
-      <div>
-        <h2>Получите подбор системы и расчёт стоимости</h2>
-        <p>Опишите задачу — инженер предложит систему Resacrete и рассчитает расход и цену.</p>
+    <div class="cta-band cta-lead">
+      <div class="cta-lead__main">
+        <span class="cta-lead__over">Бесплатно и без обязательств</span>
+        <h2>Заберите подбор системы, смету и ТДС — в день обращения</h2>
+        <ul class="cta-perks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Подбор системы под ваш техпроцесс</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Расчёт расхода и сметы по вашей площади</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Образец и выкрас покрытия по запросу</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Комплект ТДС, узлов и сертификатов для проекта</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Выезд технолога на объект</li>
+        </ul>
       </div>
-      <form>
+      <form class="cta-lead__form" id="lead-cta">
+        <span class="cta-chips__label">Что прислать? Отметьте — приложим к ответу:</span>
+        <div class="cta-chips">
+          <button type="button" class="chip chip--toggle is-on" data-pick="Прайс">Прайс</button>
+          <button type="button" class="chip chip--toggle is-on" data-pick="ТДС">ТДС и узлы</button>
+          <button type="button" class="chip chip--toggle" data-pick="Образец">Образец</button>
+          <button type="button" class="chip chip--toggle" data-pick="Смета">Смета</button>
+        </div>
         <input class="field" type="text" placeholder="Имя">
         <input class="field" type="tel" placeholder="+7 (___) ___-__-__">
-        <button class="btn btn--dark btn--block" type="button">Отправить заявку<svg class="btn__ic btn__ic--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn btn--dark btn--block" type="submit">Получить материалы<svg class="btn__ic btn__ic--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="cta-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Отвечаем за 30 минут в рабочее время</p>
       </form>
     </div>
   </div>
@@ -701,6 +741,17 @@
   </div>
 </footer>
 
+<!-- плавающая кнопка-лидолов -->
+<button class="fab-cta" id="fab-cta" aria-label="Рассчитать стоимость">
+  <span class="fab-cta__ring"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M8 15h2M14 11h2M14 15h2"/></svg>
+  <span class="fab-cta__label">Рассчитать стоимость</span>
+</button>
+
+<!-- тост уведомлений (лиды/калькулятор) -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script src="anim.js" defer></script>
+<script src="leadgen.js" defer></script>
 </body>
 </html>
