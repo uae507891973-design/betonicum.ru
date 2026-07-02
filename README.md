@@ -12,6 +12,7 @@
 | [`docs/seo-analysis.md`](docs/seo-analysis.md) | SEO-анализ: индексация, конкуренты, семантическое ядро, план работ |
 | [`docs/market-research-and-conversion-structure.md`](docs/market-research-and-conversion-structure.md) | Исследование рынка, конкуренты, УТП и конверсионная структура сайта с законами UX |
 | [`docs/partner-agreement.md`](docs/partner-agreement.md) | Партнёрское соглашение для подрядчиков: программа выгод «Resacrete Pro» + договор-шаблон |
+| [`docs/partner-prospects.md`](docs/partner-prospects.md) | Целевой список партнёров-подрядчиков в развивающихся странах + приоритизация рынков и playbook аутрича |
 | [`docs/improvements.md`](docs/improvements.md) | Варианты улучшения сайта на основе анализа конкурентов: приоритеты, 3 сценария внедрения |
 | [`docs/roadmap.md`](docs/roadmap.md) | Единая дорожная карта: 5 фаз, зависимости, вехи, метрики, временная шкала |
 | [`docs/cjm.md`](docs/cjm.md) | Customer Journey Map по 3 персонам: этапы, эмоции, боли и решения по фазам |
