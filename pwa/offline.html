@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#16314f">
+<link rel="manifest" href="/manifest.webmanifest">
+<title>Офлайн-режим — Betonicum</title>
+<style>
+  :root { --bg:#16314f; --accent:#f08c26; --light:#ecf0f4; }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--light); color: #1c2733; min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  header {
+    background: var(--bg); color: #fff; padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  header img { width: 36px; height: 36px; border-radius: 8px; }
+  header h1 { font-size: 18px; font-weight: 600; }
+  main { flex: 1; padding: 24px 20px; max-width: 640px; width: 100%; margin: 0 auto; }
+  .status {
+    background: #fff; border-radius: 12px; padding: 20px;
+    box-shadow: 0 1px 4px rgba(22,49,79,.12); margin-bottom: 24px;
+  }
+  .status h2 { font-size: 17px; margin-bottom: 8px; }
+  .status p { font-size: 14px; color: #5a6b7d; line-height: 1.5; }
+  .status button {
+    margin-top: 14px; background: var(--accent); color: #fff; border: 0;
+    padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  h3 { font-size: 15px; color: #5a6b7d; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .04em; }
+  ul#docs { list-style: none; padding: 0; }
+  ul#docs li {
+    background: #fff; border-radius: 10px; margin-bottom: 8px;
+    display: flex; align-items: center; box-shadow: 0 1px 3px rgba(22,49,79,.10);
+  }
+  ul#docs a {
+    flex: 1; padding: 14px 16px; color: var(--bg); text-decoration: none;
+    font-size: 14px; font-weight: 500; word-break: break-all;
+  }
+  ul#docs button {
+    background: none; border: 0; color: #b03a2e; font-size: 13px;
+    padding: 14px 16px; cursor: pointer;
+  }
+  .empty { font-size: 14px; color: #8294a6; }
+</style>
+</head>
+<body>
+<header>
+  <img src="/pwa/icons/icon-192.png" alt="">
+  <h1>Betonicum — офлайн</h1>
+</header>
+<main>
+  <div class="status">
+    <h2 id="st-title">Нет подключения к сети</h2>
+    <p id="st-text">Страница, которую вы запросили, недоступна без интернета.
+       Ниже — техническая документация, сохранённая на этом устройстве: она открывается без сети.</p>
+    <button onclick="location.reload()">Повторить попытку</button>
+  </div>
+
+  <h3>Сохранённые документы</h3>
+  <ul id="docs"><li class="empty">Загрузка…</li></ul>
+</main>
+
+<script>
+  function fileName(url) {
+    try { return decodeURIComponent(new URL(url).pathname.split('/').pop()); }
+    catch (e) { return url; }
+  }
+
+  function render(urls) {
+    const list = document.getElementById('docs');
+    list.innerHTML = '';
+    if (!urls.length) {
+      list.innerHTML = '<li class="empty">Пока ничего не сохранено. На карточках продукции ' +
+        'нажмите «Сохранить офлайн» рядом с нужным документом.</li>';
+      return;
+    }
+    urls.forEach((url) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = url;
+      a.textContent = fileName(url);
+      const del = document.createElement('button');
+      del.textContent = 'Удалить';
+      del.onclick = () => {
+        navigator.serviceWorker.controller?.postMessage({ type: 'REMOVE_DOC', url });
+        li.remove();
+      };
+      li.append(a, del);
+      list.append(li);
+    });
+  }
+
+  async function loadDocs() {
+    if (!('serviceWorker' in navigator)) { render([]); return; }
+    const reg = await navigator.serviceWorker.ready;
+    const channel = new MessageChannel();
+    channel.port1.onmessage = (e) => render(e.data.urls || []);
+    (reg.active || navigator.serviceWorker.controller)?.postMessage({ type: 'LIST_DOCS' }, [channel.port2]);
+  }
+
+  if (navigator.onLine) {
+    document.getElementById('st-title').textContent = 'Соединение есть';
+    document.getElementById('st-text').textContent =
+      'Это ваша офлайн-библиотека документов. Всё, что сохранено здесь, будет доступно и без сети.';
+  }
+  window.addEventListener('online', () => location.reload());
+  loadDocs();
+</script>
+</body>
+</html>

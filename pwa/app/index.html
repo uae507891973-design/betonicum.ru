@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Title по шаблону из docs/seo-analysis.md, п. 2 -->
+<title>Полиуретан-цементные полы Resacrete от производителя — Betonicum</title>
+<meta name="description" content="Производим полиуретан-цементные системы Resacrete с 2001 года. Подбор покрытия под вашу отрасль, калькулятор расхода, техдокументация офлайн.">
+<meta name="theme-color" content="#16314f">
+<!-- Пути относительные, чтобы прототип работал и на демо-хостинге в подкаталоге.
+     При деплое на betonicum.ru заменить на /manifest.webmanifest и /pwa/icons/… -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Betonicum",
+  "url": "https://betonicum.ru/",
+  "logo": "https://betonicum.ru/pwa/icons/icon-512.png",
+  "foundingDate": "2001",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+7-495-725-00-33",
+    "contactType": "sales",
+    "areaServed": "RU",
+    "availableLanguage": "ru"
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #16314f;          /* фирменный тёмно-синий */
+    --bg-2: #1e4068;
+    --accent: #f08c26;      /* фирменный оранжевый */
+    --accent-dark: #d97a18;
+    --surface: #ffffff;
+    --canvas: #eef1f5;
+    --text: #1c2733;
+    --muted: #5a6b7d;
+    --line: #e1e7ee;
+    --radius: 14px;
+    --shadow: 0 1px 4px rgba(22, 49, 79, .10);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--canvas);
+    color: var(--text);
+    padding-bottom: calc(76px + var(--safe-bottom)); /* место под нижнюю навигацию */
+  }
+  a { text-decoration: none; color: inherit; }
+  button { font: inherit; cursor: pointer; }
+
+  /* ---------- Шапка ---------- */
+  .appbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg); color: #fff;
+    padding: 12px 16px calc(12px);
+    padding-top: calc(12px + env(safe-area-inset-top, 0px));
+    display: flex; align-items: center; gap: 10px;
+  }
+  .appbar img { width: 34px; height: 34px; border-radius: 8px; flex: none; }
+  .appbar .brand { flex: 1; min-width: 0; }
+  .appbar .brand strong { display: block; font-size: 16px; letter-spacing: .02em; }
+  .appbar .brand span {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11.5px; color: #aebdcf;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #4caf50; flex: none; }
+  .dot.off { background: #f0a226; }
+  .call {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.12); color: #fff;
+    border: 0; border-radius: 22px; padding: 9px 14px;
+    font-size: 13.5px; font-weight: 600;
+  }
+
+  /* ---------- Hero: подбор по задаче, а не по номенклатуре ---------- */
+  .hero {
+    background: linear-gradient(168deg, var(--bg) 0%, var(--bg-2) 100%);
+    color: #fff; padding: 20px 16px 26px;
+  }
+  .hero h1 { font-size: 21px; line-height: 1.28; font-weight: 700; max-width: 22ch; }
+  .hero p { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: #c4d0de; max-width: 38ch; }
+  .hero .trust { display: flex; gap: 14px; margin-top: 14px; }
+  .hero .trust div { font-size: 11.5px; color: #aebdcf; line-height: 1.35; }
+  .hero .trust b { display: block; font-size: 15px; color: #fff; }
+  .cta {
+    display: block; width: 100%; margin-top: 18px;
+    background: var(--accent); color: #fff; border: 0;
+    border-radius: var(--radius); padding: 15px;
+    font-size: 15.5px; font-weight: 700; text-align: center;
+    box-shadow: 0 6px 18px rgba(240, 140, 38, .35);
+  }
+  .cta:active { background: var(--accent-dark); }
+  .cta small { display: block; font-weight: 400; font-size: 12px; opacity: .85; margin-top: 2px; }
+
+  /* ---------- Быстрые действия ---------- */
+  .quick {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    padding: 0 16px; margin-top: -16px; /* наезжает на hero */
+  }
+  .quick a {
+    background: var(--surface); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 12px 6px 10px;
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 600; color: var(--text); text-align: center;
+  }
+  .quick .ic {
+    width: 38px; height: 38px; border-radius: 11px;
+    background: #eaf0f7; color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quick .ic svg { width: 20px; height: 20px; }
+  .quick a.hot .ic { background: #fdeedd; color: var(--accent-dark); }
+  .badge {
+    position: absolute; transform: translate(14px, -14px);
+    background: var(--accent); color: #fff; font-size: 9.5px; font-weight: 700;
+    border-radius: 8px; padding: 2px 5px;
+  }
+
+  /* ---------- Секции ---------- */
+  section { padding: 22px 16px 0; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 11px; }
+  .sec-head h2 { font-size: 16.5px; font-weight: 700; }
+  .sec-head a { font-size: 13px; font-weight: 600; color: var(--accent-dark); }
+
+  /* отраслевые чипы — кластер 2 из seo-analysis */
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips a {
+    flex: none; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 20px; padding: 9px 14px;
+    font-size: 13px; font-weight: 600; color: var(--text);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .chips a span { font-size: 15px; }
+
+  /* карточки продуктов */
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+  .card {
+    background: var(--surface); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 14px;
+  }
+  .card .top { display: flex; align-items: center; gap: 10px; }
+  .swatch { width: 42px; height: 42px; border-radius: 10px; flex: none; }
+  .card h3 { font-size: 15px; }
+  .card .for { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tags span {
+    background: #eaf0f7; color: var(--bg); border-radius: 6px;
+    padding: 3px 8px; font-size: 11px; font-weight: 600;
+  }
+  .card .row { display: flex; gap: 8px; margin-top: 12px; }
+  .btn {
+    flex: 1; border-radius: 10px; padding: 10px; font-size: 13px; font-weight: 600;
+    text-align: center; border: 0;
+  }
+  .btn.primary { background: var(--bg); color: #fff; }
+  .btn.ghost { background: none; border: 1.5px solid var(--line); color: var(--text); display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .btn.ghost.saved { border-color: #4caf50; color: #2e7d32; }
+
+  /* кейс */
+  .case {
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .case .photo {
+    height: 132px;
+    background:
+      linear-gradient(20deg, rgba(22,49,79,.78) 30%, rgba(22,49,79,.15)),
+      repeating-linear-gradient(90deg, #8fa3b8 0 46px, #7d92a9 46px 92px);
+    display: flex; align-items: flex-end; padding: 12px 14px; color: #fff;
+  }
+  .case .photo b { font-size: 14.5px; line-height: 1.3; }
+  .case .body { padding: 12px 14px 14px; }
+  .case .meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; }
+  .case .body p { font-size: 13px; line-height: 1.45; margin-top: 8px; }
+
+  /* лид-форма: короткая, имя+телефон (ux-research, п. 4.3) */
+  .lead {
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 16px 14px;
+  }
+  .lead h2 { font-size: 16px; }
+  .lead p { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .lead input {
+    width: 100%; margin-top: 10px; border: 1.5px solid var(--line); border-radius: 10px;
+    padding: 12px; font: inherit; font-size: 14px; background: #fbfcfe;
+  }
+  .lead input:focus { outline: none; border-color: var(--bg); }
+  .lead button { width: 100%; margin-top: 10px; }
+  .lead .note { font-size: 11px; color: #93a3b3; margin-top: 8px; text-align: center; }
+
+  /* ---------- Нижняя навигация ---------- */
+  nav.tabs {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--surface); border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    padding: 6px 4px calc(6px + var(--safe-bottom));
+  }
+  nav.tabs a {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    font-size: 10.5px; font-weight: 600; color: #8294a6; padding: 4px 0;
+  }
+  nav.tabs a svg { width: 22px; height: 22px; }
+  nav.tabs a.active { color: var(--bg); }
+  nav.tabs a.fab-wrap { position: relative; color: var(--bg); }
+  nav.tabs .fab {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: -20px; box-shadow: 0 5px 14px rgba(240,140,38,.45);
+  }
+  nav.tabs .fab svg { width: 22px; height: 22px; }
+
+  /* офлайн-плашка */
+  .offline-bar {
+    display: none; background: #f0a226; color: #3d2a05;
+    font-size: 12.5px; font-weight: 600; text-align: center; padding: 7px 12px;
+  }
+  body.is-offline .offline-bar { display: block; }
+  body.is-offline .dot { background: #f0a226; }
+
+  @media (min-width: 640px) {
+    .hero, section, .quick { max-width: 560px; margin-left: auto; margin-right: auto; }
+    .quick { margin-top: -16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <img src="../icons/icon-192.png" alt="Betonicum">
+  <div class="brand">
+    <strong>Betonicum</strong>
+    <span><i class="dot" id="net-dot"></i><span id="net-label">онлайн · производитель Resacrete</span></span>
+  </div>
+  <a class="call" href="tel:+74957250033" aria-label="Позвонить в отдел продаж">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    Звонок
+  </a>
+</header>
+
+<div class="offline-bar">Нет сети — показываем сохранённые данные. Документы офлайн доступны.</div>
+
+<!-- Hero: вход от задачи клиента, а не от номенклатуры (ux-research, п. 4.2) -->
+<div class="hero">
+  <h1>Промышленные полы, которые переживут ваше оборудование</h1>
+  <p>Производим полиуретан-цементные системы Resacrete. Укладка — проверенными подрядчиками по всей России.</p>
+  <div class="trust">
+    <div><b>с 2001</b> на рынке</div>
+    <div><b>8 систем</b> Resacrete</div>
+    <div><b>1 день</b> до запуска цеха*</div>
+  </div>
+  <button class="cta" id="cta-wizard">
+    Подобрать систему под задачу
+    <small>3 вопроса: отрасль, нагрузки, температура — без знания марок</small>
+  </button>
+</div>
+
+<!-- Быстрые действия: главные сценарии четырёх персон -->
+<div class="quick" role="navigation" aria-label="Быстрые действия">
+  <a href="/products/">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v7H4zM13 14h7v7h-7z" opacity=".9"/></svg></span>
+    Каталог
+  </a>
+  <a href="#calc" class="hot">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14a1 1 0 011 1v16a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1zm2 3v3h10V6H7zm0 6h3v2H7v-2zm5 0h3v2h-3v-2zm-5 4h3v2H7v-2zm5 0h6v2h-6v-2z"/></svg></span>
+    Расход и смета
+  </a>
+  <a href="/offline.html">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10l3.5-3.5 1.4 1.4L12 16.8 7.1 10.9l1.4-1.4L12 13V3h0zM5 19h14v2H5z"/></svg><span class="badge" id="docs-count" hidden>0</span></span>
+    Документы офлайн
+  </a>
+  <a href="/objects/">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 21V9l7-5 7 5v3.1a5.4 5.4 0 014 5.2V21h-6v-3a2 2 0 00-4 0v3H3zm2-2h4v-1a4 4 0 018 0v1h2v-2.7a3.4 3.4 0 00-2.4-3.3L10 6.5 5 10v9z"/></svg></span>
+    Объекты
+  </a>
+</div>
+
+<!-- Отраслевые сценарии — посадочные кластера 2 (seo-analysis, п. 4) -->
+<section aria-labelledby="h-industry">
+  <div class="sec-head">
+    <h2 id="h-industry">Решения для вашей отрасли</h2>
+    <a href="/resheniya/">Все</a>
+  </div>
+  <div class="chips">
+    <a href="/resheniya/myasopererabotka/"><span>🥩</span>Мясопереработка</a>
+    <a href="/resheniya/molochnyy-zavod/"><span>🥛</span>Молочный завод</a>
+    <a href="/resheniya/pivovarnya/"><span>🍺</span>Пивоварня и напитки</a>
+    <a href="/resheniya/farma/"><span>💊</span>Фармацевтика</a>
+    <a href="/resheniya/sklad/"><span>📦</span>Склады и логистика</a>
+    <a href="/resheniya/morozilnye-kamery/"><span>❄️</span>Морозильные камеры</a>
+  </div>
+</section>
+
+<!-- Популярные системы: карточка = назначение + ТДС офлайн -->
+<section aria-labelledby="h-products">
+  <div class="sec-head">
+    <h2 id="h-products">Популярные системы</h2>
+    <a href="/products/">Каталог</a>
+  </div>
+  <div class="cards">
+
+    <article class="card">
+      <div class="top">
+        <span class="swatch" style="background:linear-gradient(135deg,#b0413e,#8f2e2c)"></span>
+        <div>
+          <h3>Resacrete TG</h3>
+          <div class="for">Пищевые производства · тяжёлые и сверхтяжёлые нагрузки</div>
+        </div>
+      </div>
+      <div class="tags"><span>противоскользящее</span><span>мойка горячей водой</span><span>−40…+120 °C</span></div>
+      <div class="row">
+        <a class="btn primary" href="/resalux-tg/">Подробнее</a>
+        <button class="btn ghost" data-doc="/docs/tds-resalux-tg.pdf">⤓ ТДС офлайн</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="top">
+        <span class="swatch" style="background:linear-gradient(135deg,#5b7d9b,#3e5f7d)"></span>
+        <div>
+          <h3>Resacrete SL</h3>
+          <div class="for">Наливное самовыравнивающееся · средние и высокие нагрузки</div>
+        </div>
+      </div>
+      <div class="tags"><span>гладкая матовая поверхность</span><span>химстойкость</span></div>
+      <div class="row">
+        <a class="btn primary" href="/resalux-sl/">Подробнее</a>
+        <button class="btn ghost" data-doc="/docs/tds-resalux-sl.pdf">⤓ ТДС офлайн</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="top">
+        <span class="swatch" style="background:linear-gradient(135deg,#6f8f5f,#52713f)"></span>
+        <div>
+          <h3>Resacrete SR</h3>
+          <div class="for">Влажные зоны, проливы масел и жиров · 3 степени шероховатости</div>
+        </div>
+      </div>
+      <div class="tags"><span>текстурированное</span><span>износостойкое</span></div>
+      <div class="row">
+        <a class="btn primary" href="/resalux-sr/">Подробнее</a>
+        <button class="btn ghost" data-doc="/docs/tds-resalux-sr.pdf">⤓ ТДС офлайн</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Кейс: доверие через реализованные объекты -->
+<section aria-labelledby="h-case">
+  <div class="sec-head">
+    <h2 id="h-case">Реализованные объекты</h2>
+    <a href="/objects/">Все объекты</a>
+  </div>
+  <article class="case">
+    <div class="photo"><b>«Стародворские колбасы»<br>ГК ABI PRODUCT — производственный цех</b></div>
+    <div class="body">
+      <div class="meta"><span>Мясопереработка</span><span>Resacrete TG</span></div>
+      <p>Покрытие производственного цеха с мойкой горячей водой и движением транспортных тележек — без остановки производства.</p>
+    </div>
+  </article>
+</section>
+
+<!-- Короткая лид-форма: имя + телефон -->
+<section aria-labelledby="h-lead" id="calc">
+  <div class="lead">
+    <h2 id="h-lead">Рассчитать стоимость для вашего объекта</h2>
+    <p>Инженер перезвонит в течение рабочего дня, уточнит площадь и условия эксплуатации.</p>
+    <form id="lead-form">
+      <input type="text" name="name" placeholder="Имя" autocomplete="name" required>
+      <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required>
+      <button class="cta" type="submit" style="margin-top:10px">Получить расчёт</button>
+    </form>
+    <p class="note">Заявка без сети сохранится и отправится при появлении соединения</p>
+  </div>
+</section>
+
+<nav class="tabs" aria-label="Основная навигация">
+  <a href="/" class="active">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 6v10h-5v-6H9v6H4V10z"/></svg>
+    Главная
+  </a>
+  <a href="/products/">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v7H4zM13 14h7v7h-7z"/></svg>
+    Каталог
+  </a>
+  <a href="#" class="fab-wrap" id="tab-wizard" aria-label="Подбор системы">
+    <span class="fab"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2a8 8 0 015.3 14l5.4 5.3-1.4 1.4-5.3-5.4A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/></svg></span>
+    Подбор
+  </a>
+  <a href="/offline.html">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v15a1 1 0 01-1 1H6a1 1 0 01-1-1V3a1 1 0 011-1zm8 1.5V8h4.5L14 3.5zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+    Документы
+  </a>
+  <a href="/contacts/">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm8 8L5 7v11h14V7l-7 5zm0-2.4L18.2 6H5.8L12 9.6z"/></svg>
+    Контакты
+  </a>
+</nav>
+
+<script>
+  /* Индикатор сети + офлайн-плашка */
+  function netState() {
+    var off = !navigator.onLine;
+    document.body.classList.toggle('is-offline', off);
+    document.getElementById('net-label').textContent =
+      off ? 'офлайн · документы доступны' : 'онлайн · производитель Resacrete';
+  }
+  window.addEventListener('online', netState);
+  window.addEventListener('offline', netState);
+  netState();
+
+  /* Счётчик сохранённых документов на ярлыке «Документы офлайн» */
+  if ('caches' in window) {
+    caches.open('betonicum-docs').then(function (c) { return c.keys(); }).then(function (keys) {
+      var b = document.getElementById('docs-count');
+      if (keys.length) { b.textContent = keys.length; b.hidden = false; }
+    });
+  }
+
+  /* Кнопки «ТДС офлайн» — сохранение через service worker (pwa/sw.js, SAVE_DOC) */
+  document.querySelectorAll('[data-doc]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ type: 'SAVE_DOC', url: btn.dataset.doc });
+      }
+      btn.classList.add('saved');
+      btn.textContent = '✓ Сохранено';
+    });
+  });
+
+  /* Мастер подбора — фаза 2; пока ведём на каталог с пояснением */
+  ['cta-wizard', 'tab-wizard'].forEach(function (id) {
+    document.getElementById(id).addEventListener('click', function (e) {
+      e.preventDefault();
+      /* Продакшен: location.href = '/podbor/' — мастер из 3 шагов: отрасль → нагрузки → температура */
+      demoToast('Прототип: мастер подбора (3 шага) — следующая итерация');
+    });
+  });
+
+  /* Демо-режим прототипа: внутренние разделы сайта ещё не свёрстаны —
+     показываем подсказку вместо перехода на 404. Удалить при деплое на betonicum.ru. */
+  function demoToast(text) {
+    var t = document.createElement('div');
+    t.textContent = text;
+    t.setAttribute('style',
+      'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);z-index:99;' +
+      'background:#16314f;color:#fff;border-radius:8px;padding:10px 18px;max-width:86%;' +
+      'font:13.5px system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3);text-align:center;');
+    document.body.appendChild(t);
+    setTimeout(function () { t.remove(); }, 2600);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="/"]');
+    if (!a) return;
+    e.preventDefault();
+    demoToast('Прототип первого экрана: раздел «' + (a.textContent.trim().slice(0, 30) || a.getAttribute('href')) + '» появится в следующей итерации');
+  });
+
+  /* Лид-форма: офлайн-очередь (упрощённо, до Background Sync фазы 3) */
+  document.getElementById('lead-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = Object.fromEntries(new FormData(e.target));
+    if (!navigator.onLine) {
+      try {
+        var q = JSON.parse(localStorage.getItem('lead-queue') || '[]');
+        q.push({ data: data, ts: Date.now() });
+        localStorage.setItem('lead-queue', JSON.stringify(q));
+        alert('Нет сети. Заявка сохранена и отправится автоматически.');
+      } catch (err) { alert('Не удалось сохранить заявку.'); }
+      return;
+    }
+    /* TODO: endpoint формы WordPress (admin-ajax / WPForms webhook) */
+    alert('Спасибо! Инженер свяжется с вами в течение рабочего дня.');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
