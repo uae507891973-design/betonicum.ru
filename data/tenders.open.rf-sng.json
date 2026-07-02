@@ -1,0 +1,138 @@
+{
+  "_comment": "Тендеры по полимерным/полиуретан-цементным полам, РФ + СНГ, с открытым или неистёкшим приёмом заявок на 02.07.2026. Собрано через открытый веб-поиск; лоты с истёкшими сроками (Люберцы до 25.06, Болохово до 26.06) исключены. null / «уточнить» = точная дата закрыта антибот-защитой источника — проверять по ссылке. Записи с deal_type='канал' — постоянные потоки лотов (разделы площадок), а не разовые закупки.",
+  "tenders": [
+    {
+      "object_name": "Устройство покрытия пола подземной парковки (топпинг), ЖК «Первое место», г. Краснодар",
+      "customer_name": "застройщик ЖК «Первое место»",
+      "customer_region": "Россия, Краснодарский край, г. Краснодар",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "publish_date": "2026-06-22",
+      "deadline_date": "2026-07-03",
+      "source": "агрегатор (rostender/tochka)",
+      "url": "https://rostender.info/category/tendery-na-nalivnye-poly"
+    },
+    {
+      "object_name": "Наливные полы (закупка № 2025-1279192), Республика Беларусь",
+      "customer_name": null,
+      "customer_region": "Беларусь",
+      "law": "коммерческий/госзакупка РБ",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": "срок уточнить в карточке",
+      "source": "Контур.Закупки (СНГ), карточка SNG3927659",
+      "url": "https://zakupki.kontur.ru/SNG3927659"
+    },
+    {
+      "object_name": "Устройство полимерных полов на комбикормовом заводе ГК «Агроэко»",
+      "customer_name": "ГК «Агроэко»",
+      "customer_region": "Россия, Воронежская обл., Новохопёрский р-н",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы (пищевое производство — целевой сегмент ПУ-цемента)",
+      "nmck": null,
+      "deadline_date": "срок уточнить в карточке",
+      "source": "агрегаторы (Точка Закупки, Контур)",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Устройство отделки подземной автостоянки и наливных полов подземной автостоянки",
+      "customer_name": null,
+      "customer_region": "Россия, Московская обл., Ленинский г.о.",
+      "law": "44",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": "срок уточнить в ЕИС",
+      "source": "ЕИС / открытый поиск",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=наливные+полы+автостоянка"
+    },
+    {
+      "object_name": "Устройство напольного полимерного покрытия в паркинге и рампе",
+      "customer_name": null,
+      "customer_region": "Россия, г. Тюмень",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": "срок уточнить в карточке",
+      "source": "агрегатор / открытый поиск",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Устройство полимерных полов подземной автостоянки",
+      "customer_name": null,
+      "customer_region": "Россия, г. Ростов-на-Дону",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": "срок уточнить в карточке",
+      "source": "агрегатор / открытый поиск",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Поставка материалов для полимерных наливных полов (грунт эпоксидный, эмаль — тип «Элакор»); регулярные закупки по РФ",
+      "customer_name": null,
+      "customer_region": "Россия (по всей РФ)",
+      "law": "44/223",
+      "okpd2": ["20.30.12"],
+      "deal_type": "поставка материалов (прямое участие производителя)",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "ЕИС / открытый поиск",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=поставка+материалов+наливной+пол"
+    },
+    {
+      "object_name": "Отраслевой раздел «Наливные полы» ЭТП ТЭК-Торг — постоянный поток процедур (нефтегаз, промышленность)",
+      "customer_name": "заказчики ТЭК-Торг",
+      "customer_region": "Россия (по всей РФ)",
+      "law": "223/коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "канал: работы и поставка",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "ЭТП ТЭК-Торг",
+      "url": "https://www.tektorg.ru/procedures/otrasli/nalivnie-poli"
+    },
+    {
+      "object_name": "Казахстан: реестр лотов goszakup.gov.kz, поиск «полимерные/наливные полы» — постоянный поток госзакупок РК",
+      "customer_name": "госзаказчики РК",
+      "customer_region": "Казахстан",
+      "law": "госзакупки РК",
+      "okpd2": ["43.33"],
+      "deal_type": "канал: работы и поставка (есть открытый API портала)",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "goszakup.gov.kz (+ агрегатор tenderbot.kz)",
+      "url": "https://goszakup.gov.kz/ru/search/lots"
+    },
+    {
+      "object_name": "Беларусь: icetrade.by и goszakupki.by, поиск «наливной пол / полимерный пол» — постоянный поток закупок РБ",
+      "customer_name": "заказчики РБ",
+      "customer_region": "Беларусь",
+      "law": "госзакупки РБ",
+      "okpd2": ["43.33"],
+      "deal_type": "канал: работы и поставка",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "icetrade.by / goszakupki.by / zakupki.by",
+      "url": "https://icetrade.by/"
+    },
+    {
+      "object_name": "Узбекистан: биржа UzEx / xarid — закупки покрытий полов; конкретные открытые лоты по полимерным полам на дату поиска не найдены",
+      "customer_name": null,
+      "customer_region": "Узбекистан",
+      "law": "госзакупки РУз",
+      "okpd2": ["43.33"],
+      "deal_type": "канал: мониторить",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "xarid.uzex.uz / открытый поиск",
+      "url": "https://xarid.uzex.uz/"
+    }
+  ]
+}

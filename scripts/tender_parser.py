@@ -392,6 +392,9 @@ def main():
                     help="профиль тематики для скоринга (по умолчанию: pufloor)")
     ap.add_argument("--query", default="наливной пол", help="поисковая строка для RSS ЕИС")
     ap.add_argument("--top", type=int, default=20, help="сколько тендеров вывести")
+    ap.add_argument("--only-open", metavar="YYYY-MM-DD",
+                    help="отбросить тендеры, чей срок подачи (deadline_date, ISO) раньше этой даты; "
+                         "лоты без распознаваемой даты остаются (срок уточняется в источнике)")
     ap.add_argument("--outdir", default="out", help="каталог для отчётов")
     args = ap.parse_args()
 
@@ -405,6 +408,19 @@ def main():
         raw = fetch_from_tenderplan()
     else:
         ap.error("укажите --input <json> или --source <eis-rss|tenderplan>")
+
+    if args.only_open:
+        cutoff = datetime.strptime(args.only_open, "%Y-%m-%d").date()
+
+        def is_open(t):
+            m = re.search(r"\d{4}-\d{2}-\d{2}", str(t.get("deadline_date") or ""))
+            if not m:
+                return True  # срок неизвестен — оставляем, уточняется в источнике
+            return datetime.strptime(m.group(), "%Y-%m-%d").date() >= cutoff
+
+        before = len(raw)
+        raw = [t for t in raw if is_open(t)]
+        print(f"[filter] открытые на {cutoff}: {len(raw)} из {before} (истёкшие отброшены)")
 
     scored = sorted((score_tender(t) for t in raw), key=lambda x: x["_score"], reverse=True)
     top = scored[: args.top]
