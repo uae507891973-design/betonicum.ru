@@ -1,0 +1,103 @@
+{
+  "_comment": "Реальные тендеры/заявки по полимерным и полиуретан-цементным полам, найденные через открытый веб-поиск (июнь 2026). Точные НМЦК и сроки закрыты антибот-защитой источников (403 для автоматического сбора) — null заполняется при запуске tender_parser.py с авторизованным источником (КЭП ЕИС / API агрегатора). Перед подачей заявки сверять в первоисточнике.",
+  "tenders": [
+    {
+      "object_name": "Устройство полимерных полов на предприятии по производству комбикормов (комбикормовый завод ГК «Агроэко»)",
+      "customer_name": "ГК «Агроэко»",
+      "customer_region": "Воронежская обл., Новохопёрский р-н",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы (материалы закупает подрядчик)",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "коммерческая закупка / агрегаторы (Точка Закупки, Контур)",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Нанесение полимерного наливного покрытия пола, паркинг №1, г. Люберцы",
+      "customer_name": null,
+      "customer_region": "Московская обл., г. Люберцы",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "publish_date": "2026-06-19",
+      "deadline_date": "2026-06-25",
+      "source": "агрегатор (rostender)",
+      "url": "https://rostender.info/category/tendery-na-nalivnye-poly"
+    },
+    {
+      "object_name": "Устройство промышленных полов в здании завода, г. Болохово",
+      "customer_name": null,
+      "customer_region": "Тульская обл., г. Болохово",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "publish_date": "2026-06-22",
+      "deadline_date": null,
+      "source": "агрегатор (rostender)",
+      "url": "https://rostender.info/category/tendery-na-nalivnye-poly"
+    },
+    {
+      "object_name": "Устройство отделки подземной автостоянки и наливных полов подземной автостоянки",
+      "customer_name": null,
+      "customer_region": "Московская обл., Ленинский г.о.",
+      "law": "44",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "ЕИС / открытый поиск",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=наливные+полы+автостоянка"
+    },
+    {
+      "object_name": "Устройство напольного полимерного покрытия в паркинге и рампе",
+      "customer_name": null,
+      "customer_region": "Тюменская обл., г. Тюмень",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "агрегатор / открытый поиск",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Устройство полимерных полов подземной автостоянки",
+      "customer_name": null,
+      "customer_region": "Ростовская обл., г. Ростов-на-Дону",
+      "law": "коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "агрегатор / открытый поиск",
+      "url": "https://zakupki.tochka.com/category/tendery-na-polimernye-poly/"
+    },
+    {
+      "object_name": "Поставка материалов для полимерных наливных полов: грунт эпоксидный, эмаль эпоксидная (тип «Элакор»)",
+      "customer_name": null,
+      "customer_region": "по РФ",
+      "law": "44/223",
+      "okpd2": ["20.30.12"],
+      "deal_type": "поставка материалов (прямое участие производителя)",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "ЕИС / открытый поиск (закупки материалов типа «Элакор» регулярно публикуются)",
+      "url": "https://zakupki.gov.ru/epz/order/extendedsearch/results.html?searchString=поставка+материалов+наливной+пол"
+    },
+    {
+      "object_name": "Тендеры на наливные полы — отраслевой раздел ЭТП ТЭК-Торг (постоянный поток процедур)",
+      "customer_name": "заказчики ТЭК-Торг (нефтегаз, промышленность)",
+      "customer_region": "по РФ",
+      "law": "223/коммерческий",
+      "okpd2": ["43.33"],
+      "deal_type": "работы и поставка",
+      "nmck": null,
+      "deadline_date": null,
+      "source": "ЭТП ТЭК-Торг",
+      "url": "https://www.tektorg.ru/procedures/otrasli/nalivnie-poli"
+    }
+  ]
+}
